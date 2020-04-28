@@ -38,4 +38,4 @@ function update_kernel_dtb(){
 # https://ci.android.com/builds/branches/aosp_kernel-hikey-linaro-android-4.19/grid?
 # https://ci.android.com/builds/submitted/6423191/kernel_hikey960/latest
 # https://ci.android.com/builds/submitted/6423191/kernel_hikey/latest
-update_kernel_dtb 6423191 4.19
+update_kernel_dtb 6437572 4.14
