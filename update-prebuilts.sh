@@ -12,9 +12,10 @@ function update_kernel_dtb_hikey960(){
     local build_num="${1}" && shift
     local kernel_version="${1}" && shift
     local board="hikey960"
-    wget_wrapper ${build_num} ${board} Image.gz-dtb Image.gz-dtb-hikey960-${kernel_version}
-    wget_wrapper ${build_num} ${board} hi3660-hikey960.dtb hi3660-hikey960.dtb-${kernel_version}
-    wget_wrapper ${build_num} ${board} manifest_${build_num}.xml manifest_${build_num}-${board}.xml
+    mkdir -p ${board}/${kernel_version}
+    wget_wrapper ${build_num} ${board} Image.gz-dtb ${board}/${kernel_version}/Image.gz-dtb
+    wget_wrapper ${build_num} ${board} hi3660-hikey960.dtb ${board}/${kernel_version}/hi3660-hikey960.dtb
+    wget_wrapper ${build_num} ${board} manifest_${build_num}.xml ${board}/${kernel_version}/manifest_${build_num}-${board}.xml
 }
 
 
@@ -22,9 +23,10 @@ function update_kernel_dtb_hikey(){
     local build_num="${1}" && shift
     local kernel_version="${1}" && shift
     local board="hikey"
-    wget_wrapper ${build_num} ${board} Image.gz-dtb Image.gz-dtb-${kernel_version}
-    wget_wrapper ${build_num} ${board} hi6220-hikey.dtb hi6220-hikey.dtb-${kernel_version}
-    wget_wrapper ${build_num} ${board} manifest_${build_num}.xml manifest_${build_num}-${board}.xml
+    mkdir -p ${board}/${kernel_version}
+    wget_wrapper ${build_num} ${board} Image.gz-dtb ${board}/${kernel_version}/Image.gz-dtb
+    wget_wrapper ${build_num} ${board} hi6220-hikey.dtb ${board}/${kernel_version}/hi6220-hikey.dtb
+    wget_wrapper ${build_num} ${board} manifest_${build_num}.xml ${board}/${kernel_version}/manifest_${build_num}-${board}.xml
 }
 
 function update_kernel_dtb(){
