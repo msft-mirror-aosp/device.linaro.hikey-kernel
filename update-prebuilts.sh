@@ -23,6 +23,7 @@ function update_kernel_dtb_hikey(){
     local build_num="${1}" && shift
     local kernel_version="${1}" && shift
     local board="hikey"
+    rm -fr ${board}/${kernel_version}
     mkdir -p ${board}/${kernel_version}
     wget_wrapper ${build_num} ${board} Image.gz-dtb ${board}/${kernel_version}/Image.gz-dtb
     wget_wrapper ${build_num} ${board} hi6220-hikey.dtb ${board}/${kernel_version}/hi6220-hikey.dtb
@@ -33,11 +34,12 @@ function update_kernel_dtb(){
     local build_num="${1}" && shift
     local kernel_version="${1}" && shift
 
-    update_kernel_dtb_hikey960 ${build_num} ${kernel_version}
+#    update_kernel_dtb_hikey960 ${build_num} ${kernel_version}
     update_kernel_dtb_hikey ${build_num} ${kernel_version}
 }
 
 # https://ci.android.com/builds/branches/aosp_kernel-hikey-linaro-android-4.19/grid?
 # https://ci.android.com/builds/submitted/6423191/kernel_hikey960/latest
 # https://ci.android.com/builds/submitted/6423191/kernel_hikey/latest
-update_kernel_dtb 6437572 4.14
+update_kernel_dtb 6971857 4.14
+update_kernel_dtb 6972652 4.19
